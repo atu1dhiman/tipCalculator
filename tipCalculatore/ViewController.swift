@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var topLayer: NSLayoutConstraint!
     @IBOutlet weak var spiltAction: UIButton!
     
-    var flag = true
+    var flag = false
     override func viewDidLoad() {
         super.viewDidLoad()
         UILoad()
@@ -104,11 +104,13 @@ extension ViewController {
         
         self.tipAmtLbl.text = "Total Tip Amount : \(String(format: "%.1f", tipAmt))"
         if flag {
+            
             let split = Int(splitTxt.text ?? "") ?? 0
             let tot = (billAmt + tipAmt).rounded()
             let totalAmt = Int(tot)/split
             self.totalAmtLbl.text = "Total Bill Amount After Tip : \(String(format: "%.1f", tot))"
             self.splitLlb.text = "Per Person After Split  : \(totalAmt)"
+            
            
         }else{
             splitLlb.isHidden = true
